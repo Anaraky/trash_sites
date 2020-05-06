@@ -1,8 +1,11 @@
 name: Build uBlock Subscription
 on:
+    pull_request:
+        branches: 
+            - master
     push:
         branches:
-        - master
+            - master
 jobs:
     build:
         name: Build
