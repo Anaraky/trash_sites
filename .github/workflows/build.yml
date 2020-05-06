@@ -14,18 +14,18 @@ jobs:
             - name: Set variables
               run:
                   echo "::set-env name=DATE::$(date +%Y%m%d%H%M)"
-#                   echo "::set-env name=UPSTREAM_URL::https://raw.githubusercontent.com/ron159/trash_sites/master/perman-ban"
+                  echo "::set-env name=UPSTREAM_URL::https://raw.githubusercontent.com/Anaraky/trash_sites/master/perman-ban"
               shell: bash
 
-#             - name: Checkout the "release" branch
-#               uses: actions/checkout@v2
-#               with:
-#                   ref: release
+            - name: Checkout the "release" branch
+              uses: actions/checkout@v2
+              with:
+                  ref: release
 
             - name: Get upstream file and add Adblock Plus filter syntax
               run: |
                 mkdir ./publish && touch ./publish/rules.txt
-                cat ./perman-ban | sed '{s/$/\/\*/;s/^/\*\:\/\/\*\./}' >./publish/rules.txt
+                curl -sSL $UPSTREAM_URL | sed '{s/$/\/\*/;s/^/\*\:\/\/\*\./}' >./publish/rules.txt
                 sed -i '1i\
                 [Adblock Plus 2.0]\
                 ! Title: Block Trash Sites From Google Search Results\
