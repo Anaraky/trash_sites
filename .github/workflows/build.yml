@@ -39,7 +39,7 @@ jobs:
                 git config --local user.email "${{ github.actor }}@users.noreply.github.com"
                 git clone https://github.com/${{ github.repository }}.git
                 cd ./trash_sites
-                git checkout -b release
+                git checkout release
                 git rm rules.txt
                 cp ../publish/rules.txt $(pwd)
                 git add .
