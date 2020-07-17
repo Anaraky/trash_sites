@@ -1,12 +1,15 @@
 name: Sync Fork
+
 on:
   schedule:
-    - cron: "*/3 * * * *'
+    - cron: '0 0 * * 5'
 
 
 jobs:
   sync:
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: TG908/fork-sync@v1.1.7
         with:
