@@ -35,12 +35,13 @@ jobs:
 
             - name: Git push assets to "release" branch
               run: |
-                cd ./publish
-                git init
                 git config --local user.name "${{ github.actor }}"
                 git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+                git clone https://github.com/${{ github.repository }}.git
+                cd ./trash_sites
                 git checkout -b release
+                git rm rules.txt
+                cp ../publish/rules.txt $(pwd)
                 git add .
                 git commit -m "${{ env.DATE }}"
-                git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
                 git push -f -u origin release
