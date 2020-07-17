@@ -44,5 +44,6 @@ jobs:
                 cp ../publish/rules.txt $(pwd)
                 git add .
                 git commit -m "${{ env.DATE }}"
+                git remote remove origin
                 git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
                 git push -f -u origin release
