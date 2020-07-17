@@ -16,11 +16,6 @@ jobs:
                   echo "::set-env name=DATE::$(date +%Y%m%d%H%M)"
               shell: bash
 
-            - name: Checkout the "release" branch
-              uses: actions/checkout@v2
-              with:
-                  ref: release
-
             - name: Get upstream file and add Adblock Plus filter syntax
               run: |
                 mkdir ./publish && touch ./publish/rules.txt
