@@ -2,7 +2,7 @@
 ! Title: Block Trash Sites From Google Search Results
 ! Upstream: https://github.com/ron159/trash_sites | ron159
 ! Expires: 7 days
-! Version: 202008061743
+! Version: 202008061747
 
 *://*.00006880.cn/*
 *://*.000397.com/*
